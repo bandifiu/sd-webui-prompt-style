@@ -1,0 +1,200 @@
+.prompt-style-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.prompt-style-wrapper>.prompt-style {
+    position: absolute;
+
+    inset: var(--input-padding);
+    color: var(--body-text-color);
+    font-weight: var(--input-text-weight);
+    font-size: var(--input-text-size);
+    line-height: var(--line-sm);
+
+    border: var(--input-border-width) solid transparent;
+
+    pointer-events: none;
+    white-space: pre-wrap;
+
+    caret-color: var(--body-text-color);
+}
+
+.style-root textarea {
+    color: transparent !important;
+    caret-color: var(--body-text-color);
+}
+
+.style-root {
+    --keyword-color: var(--body-text-color);
+    --keyword-odd-color: #2371e6;
+    --colon-color: #1b882a;
+    --block-color: #ee6565;
+    --block-brackets-color: #1b882a;
+    --block-angle-color: rgb(197, 134, 17);
+    --network-type-color: rgb(21, 148, 42);
+    --network-color: rgb(197, 134, 17);
+    --pipe-color: #e93232;
+    --break-color: #e93232;
+    --delimiter-color: black;
+    --weight-down-color: #14a728;
+    --weight-up-color: #ee6565;
+    --weight-color: var(--weight-down-color);
+    --comment-color: #0a941d;
+}
+
+.prompt-node-keyword {
+    color: var(--keyword-color);
+}
+
+.prompt-node-keyword.keyword-odd {
+    color: var(--keyword-odd-color);
+}
+
+.prompt-node-colon {
+    color: var(--colon-color);
+}
+
+.prompt-node-blockstart,
+.prompt-node-blockend {
+    color: var(--block-color);
+}
+
+.prompt-node-blockstart.block-brackets,
+.prompt-node-blockend.block-brackets {
+    color: var(--block-brackets-color);
+}
+
+.prompt-node-blockstart.block-angle,
+.prompt-node-blockend.block-angle {
+    color: var(--block-angle-color);
+}
+
+.prompt-node-network-type {
+    color: var(--network-type-color)
+}
+
+.prompt-node-pipe {
+    color: var(--pipe-color);
+}
+
+.prompt-node-keyword.prompt-break {
+    color: var(--break-color);
+}
+
+.prompt-node-delimiter {
+    color: var(--delimiter-color);
+}
+
+.prompt-node-network {
+    color: var(--network-color);
+}
+
+.prompt-node-weight {
+    color: var(--weight-color);
+}
+
+.prompt-node-weight.weight-up {
+    color: var(--weight-up-color);
+}
+
+.prompt-node-weight.weight-down {
+    color: var(--weight-down-color);
+}
+
+.prompt-node-comment {
+    color: var(--comment-color);
+}
+
+.prompt-node.invalid {
+    outline: 1px solid red;
+    background-color: rgba(255, 0, 0, 0.5);
+    color: white
+}
+
+/*
+ *    DARK MODE
+ */
+
+.style-root.dark-theme {
+    --keyword-color: var(--body-text-color);
+    --keyword-odd-color: #a0c1f7;
+    --colon-color: #56fd6c;
+    --block-color: #ee6565;
+    --block-brackets-color: #56fd6c;
+    --block-angle-color: yellow;
+    --network-type-color: yellow;
+    --network-color: orange;
+    --pipe-color: #e93232;
+    --break-color: #e93232;
+    --delimiter-color: white;
+    --weight-down-color: #1bff39;
+    --weight-up-color: #ee6565;
+    --weight-color: var(--weight-down-color);
+    --comment-color: #0a941d;
+}
+
+.dark-theme .prompt-node-keyword {
+    color: var(--keyword-color);
+}
+
+.dark-theme .prompt-node-keyword.keyword-odd {
+    color: var(--keyword-odd-color);
+}
+
+.dark-theme .prompt-node-colon {
+    color: var(--colon-color);
+}
+
+.dark-theme .prompt-node-blockstart,
+.dark-theme .prompt-node-blockend {
+    color: var(--block-color);
+}
+
+.dark-theme .prompt-node-blockstart.block-brackets,
+.dark-theme .prompt-node-blockend.block-brackets {
+    color: var(--block-brackets-color);
+}
+
+.dark-theme .prompt-node-blockstart.block-angle,
+.dark-theme .prompt-node-blockend.block-angle {
+    color: var(--block-angle-color);
+}
+
+.dark-theme .prompt-node-pipe {
+    color: var(--pipe-color);
+}
+
+.dark-theme .prompt-node-keyword.prompt-break {
+    color: var(--break-color);
+}
+
+.dark-theme .prompt-node-delimiter {
+    color: var(--delimiter-color);
+}
+
+.dark-theme .prompt-node-network-type {
+    color: var(--network-type-color);
+}
+
+.dark-theme .prompt-node-network {
+    color: var(--network-color);
+}
+
+.dark-theme .prompt-node-weight {
+    color: var(--weight-color);
+}
+
+.dark-theme .prompt-node-weight.weight-up {
+    color: var(--weight-up-color);
+}
+
+.dark-theme .prompt-node-weight.weight-down {
+    color: var(--weight-down-color);
+}
+
+.dark-theme .prompt-node-comment {
+    color: var(--comment-color);
+}
