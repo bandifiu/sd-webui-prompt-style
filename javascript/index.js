@@ -139,7 +139,7 @@ class PromptParser {
                     }
                 }
 
-                if (node.parent.blockType === PromptNode.Block) {
+                if (node.parent.blockType === PromptNode.Block || node.parent.blockType === PromptNode.Brackets) {
                     let pos = -1
                     let prev = node.parent.getChild(pos)
                     if (prev?.type === PromptNode.Whitespace) {
