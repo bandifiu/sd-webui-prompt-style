@@ -1,25 +1,15 @@
-.prompt-style-wrapper {
+.prompt-style {
     position: absolute;
     inset: 0;
     overflow: hidden;
     pointer-events: none;
-}
-
-.prompt-style-wrapper>.prompt-style {
-    position: absolute;
-
-    inset: var(--input-padding);
-    color: var(--body-text-color);
-    font-weight: var(--input-text-weight);
-    font-size: var(--input-text-size);
-    line-height: var(--line-sm);
-
     border: var(--input-border-width) solid transparent;
 
     pointer-events: none;
     white-space: pre-wrap;
-
-    caret-color: var(--body-text-color);
+    font-weight: var(--input-text-weight);
+    font-size: var(--input-text-size);
+    line-height: var(--line-sm);
 }
 
 .style-root textarea {

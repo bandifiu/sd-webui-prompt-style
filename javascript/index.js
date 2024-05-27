@@ -36,7 +36,7 @@ class PromptParser {
     }
 
     initElement = (key) => {
-        const container = document.querySelector(`#${key}`)
+        const container = document.querySelector(`#${key} label`)
         if (!container) {
             return
         }
@@ -54,32 +54,27 @@ class PromptParser {
 
         const style = window.getComputedStyle(elem.textarea)
 
-        const wrapper = document.createElement('div')
-        wrapper.classList.add('prompt-style-wrapper')
-
         const prompt = document.createElement('div')
 
         prompt.style.fontFamily = style.fontFamily
         prompt.style.letterSpacing = style.letterSpacing
         prompt.style.direction = style.direction
+        prompt.style.padding = style.padding
+
         prompt.classList.add('prompt-style')
 
         if (this.isDarkMode) {
             elem.container.classList.add('dark-theme')
         }
-       
-        elem.container.classList.add('style-root')
 
+        elem.container.classList.add('style-root')
         elem.textarea.addEventListener('scroll', function (e) {
             const top = e.currentTarget.scrollTop
-            prompt.style.top = `${parseInt(style.paddingTop.replace('px', '')) - top}px`;
+            prompt.style.top = `${-top}px`
         });
 
         elem.prompt = prompt
-
-        wrapper.appendChild(prompt)
-        elem.container.appendChild(wrapper)
-
+        elem.container.appendChild(prompt)
         elem.textarea.addEventListener('input', elem.handler)
 
         elem.handler()
@@ -90,13 +85,6 @@ class PromptParser {
         PromptParser.keyIndex = 0
         PromptParser.increment = false
         elem.prompt.innerHTML = node.toString()
-
-        const debug = document.getElementById('debug-promptNodes')
-        if (debug) {
-            PromptParser.keyIndex = 0
-            PromptParser.increment = false
-            debug.innerHTML = `<pre>${JSON.stringify(node.toJson(), null, 2)}</pre>`
-        }
     }
 
     parse = (prompt) => {
@@ -508,7 +496,7 @@ class PromptNode {
     }
 
     toString = () => {
-        if (this.children.length) {
+        if (this.children.length) {           
             return `<span class='${this.nodeClass}'>${this.children.map(o => o.toString()).join('')}</span>`
         }
 
