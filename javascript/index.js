@@ -2,8 +2,8 @@
 document.addEventListener("DOMContentLoaded", function () {
     const parser = new PromptParser()
 
-    onAfterUiUpdate(() => {
-        parser.run()
+    onUiLoaded(() => {
+        parser.install()
     })
 
 })
@@ -27,11 +27,9 @@ class PromptParser {
         'img2img_neg_prompt': null
     }
 
-    run = () => {
+    install = () => {
         Object.keys(this.inputs).forEach(key => {
-            if (!this.inputs[key]) {
-                this.initElement(key)
-            }
+            this.initElement(key)
         })
     }
 
@@ -84,7 +82,7 @@ class PromptParser {
         const node = this.parse(elem.textarea.value.toString())
         PromptParser.keyIndex = 0
         PromptParser.increment = false
-        elem.prompt.innerHTML = node.toString()
+        elem.prompt.innerHTML = node.toString()       
     }
 
     parse = (prompt) => {
@@ -492,11 +490,11 @@ class PromptNode {
     }
 
     escape = (str) => {
-        return str.replace('<', '&lt;').replace('>', '&gt;')
+        return str.replaceAll('<', '&lt;').replaceAll('>', '&gt;')
     }
 
     toString = () => {
-        if (this.children.length) {           
+        if (this.children.length) {
             return `<span class='${this.nodeClass}'>${this.children.map(o => o.toString()).join('')}</span>`
         }
 
